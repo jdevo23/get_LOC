@@ -42,7 +42,7 @@ echo ""
 
 echo "Total lines of code added/changed: $insertions"
 echo "Expected by today: $expected_by_today"
-echo "Progress toward year goal ($readable_target_date): $year_percentage%"
+echo "Progress toward year goal ($(printf "%'d" $year_target)): $year_percentage%"
 echo "Progress toward long term goal ($(printf "%'d" $long_term_target)): $lt_percentage%"
 
 echo ""
