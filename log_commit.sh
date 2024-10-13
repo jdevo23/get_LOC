@@ -26,11 +26,11 @@ append_to_json() {
     if [ -f "$json_file" ]; then
         # If file exists, remove the last character `]` to append new data
         # Then append new data and close the JSON array
-        sudo sed -i '$ s/.$//' "$json_file"
-        sudo bash -c "echo ',{\"date\": \"$date\", \"commit_message\": \"$commit_message\", \"insertions\": $insertions}]' >> "$json_file""
+        sed -i '$ s/.$//' "$json_file"
+        echo ",{\"date\": \"$date\", \"commit_message\": \"$commit_message\", \"insertions\": $insertions}]" >> "$json_file"
     else
         # If file doesn't exist, create a new JSON array and add the first entry
-        sudo bash -c "echo '[{\"date\": \"$date\", \"commit_message\": \"$commit_message\", \"insertions\": $insertions}]' > "$json_file""
+        echo "[{\"date\": \"$date\", \"commit_message\": \"$commit_message\", \"insertions\": $insertions}]" > "$json_file"
     fi
 }
 
